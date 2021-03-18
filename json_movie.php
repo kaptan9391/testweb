@@ -22,14 +22,15 @@
         var jsonEx = <?php echo $jsonfile ?>;
         var select = document.getElementById("movie");
         load()
-        var i = 0;
+
         function load() {
-            i += 12;
-            console.log(i)
-            var opt = document.createElement('option');
-            opt.value = i;
-            opt.innerHTML = jsonEx[i].year + ':' + jsonEx[i].title;
-            select.appendChild(opt);
+            for (var i = 0; i < jsonEx.length; i += 200) {
+                console.log(i)
+                var opt = document.createElement('option');
+                opt.value = i;
+                opt.innerHTML = jsonEx[i].year + ':' + jsonEx[i].title;
+                select.appendChild(opt);
+            }
         }
 
 
